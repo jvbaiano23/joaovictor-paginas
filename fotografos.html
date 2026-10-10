@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineKraft Studios | Modelo de Demonstracao para Estudios Audiovisuais</title>
+  <meta name="description" content="Estrutura completa de demonstracao para estudios de cinema, fotografia, video e podcast. Pronto para receber seus videos, fotos e informacoes reais.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Luz ambiente sutil que segue o ponteiro -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- Barra superior de aviso de demonstracao -->
+  <aside class="demo-banner-top" aria-label="Aviso de demonstracao">
+    <div class="demo-banner-left">
+      <span class="demo-banner-pulse" aria-hidden="true"></span>
+      <span><strong>PAGINA DE DEMONSTRACAO:</strong> Estrutura completa pronta para estudios criativos, video, foto e som.</span>
+    </div>
+    <div>
+      <button type="button" class="demo-toggle-btn" id="toggleGuideBtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <span>Guia de Onde Personalizar</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Cabecalho principal -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="brand-wrapper">
+        <div class="brand-symbol">CK</div>
+        <div class="brand-info">
+          <span class="brand-title">CINEKRAFT</span>
+          <span class="brand-subtitle">Estudio Audiovisual</span>
+        </div>
+      </div>
+
+      <nav class="nav-desktop" aria-label="Navegacao principal">
+        <a href="#espacos" class="nav-link">Espacos</a>
+        <a href="#portfolio" class="nav-link">Trabalhos</a>
+        <a href="#equipamentos" class="nav-link">Equipamentos</a>
+        <a href="#simulador" class="nav-link">Simulador</a>
+        <a href="#faq" class="nav-link">Duvidas</a>
+        <a href="#contato" class="nav-link">Contato</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#contato" class="btn-primary">
+          <span>Reservar Diaria</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         SECAO HERO CINEMATOGRAFICA
+         ========================================================================== -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-meta-bar">
+              <span class="demo-badge">Modelo de Demonstracao</span>
+              <span class="space-spec-item">Sao Paulo, SP</span>
+              <span class="space-spec-item">Ciclorama 4K e Som</span>
+            </div>
+
+            <h1 class="hero-headline">
+              O espaco onde grandes <span class="highlight-word">producoes</span> ganham vida.
+            </h1>
+
+            <p class="hero-description">
+              Estrutura profissional de gravacao, fotografia e transmissao ao vivo. Projetado por diretores para atender equipes exigentes, marcas globais e criadores independentes.
+            </p>
+
+            <div class="hero-actions-group">
+              <a href="#espacos" class="btn-primary">Conhecer os Espacos</a>
+              <a href="#simulador" class="btn-secondary">Simular Valor de Diaria</a>
+              <a href="#" class="btn-secondary" id="openGuideModalLink">Como Personalizar Este Site</a>
+            </div>
+          </div>
+
+          <!-- Visor de monitor de camera de cinema SmallHD / RED -->
+          <div class="camera-monitor-frame">
+            <div class="monitor-top-bar">
+              <div class="monitor-rec-group">
+                <span class="rec-dot" aria-hidden="true"></span>
+                <strong>REC</strong>
+                <span id="liveTimecode">01:22:14:08</span>
+              </div>
+              <div class="monitor-settings">
+                <div class="monitor-setting-item">FPS: <span>24.00</span></div>
+                <div class="monitor-setting-item">SHUTTER: <span>180.0°</span></div>
+                <div class="monitor-setting-item">ISO: <span>800</span></div>
+                <div class="monitor-setting-item">LENTE: <span>35mm T1.5</span></div>
+              </div>
+            </div>
+
+            <div class="monitor-viewport">
+              <canvas id="studioCanvas"></canvas>
+              
+              <div class="frameline-overlay" aria-hidden="true"></div>
+              <div class="crosshair" aria-hidden="true"></div>
+
+              <div class="monitor-placeholder-content">
+                <span class="demo-badge" style="margin-bottom: 0.6rem;">Area do Video Hero do Cliente</span>
+                <h2 class="monitor-placeholder-title">Seu Video Principal Entra Aqui</h2>
+                <p class="monitor-placeholder-text">
+                  Neste quadro e exibido o reel de apresentacao do seu estudio, uma filmagem em 4K do seu espaco ou um clipe guiado pela rolagem do visitante. No site final, voce adiciona o arquivo de video da sua produtora.
+                </p>
+                <div class="demo-box-helper">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  <span><strong>Dica de uso:</strong> Formato sugerido em 16:9 ou 2.39:1 cinematografico, compressao web leve e inicio automatico silencioso.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="monitor-bottom-bar">
+              <div>LUT: <span>Rec709 Film Cine</span></div>
+              <div>BATERIA: <span>14.8V (96%)</span></div>
+              <div>RESOLUCAO: <span>4K DCI (4096 x 2160)</span></div>
+              <div>AUDIO CH1/CH2: <span>-18dB OK</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metricas do estudio -->
+        <div class="metrics-row">
+          <div class="metric-card">
+            <div class="metric-number">450 m²</div>
+            <div class="metric-label">Area util climatizada</div>
+            <div class="metric-demo-note">Espaco para sua metragem real</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-number">6,2 m</div>
+            <div class="metric-label">Pe direito livre com grid</div>
+            <div class="metric-demo-note">Espaco para sua altura util</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-number">NC-18</div>
+            <div class="metric-label">Isolamento acustico de estudio</div>
+            <div class="metric-demo-note">Espaco para seu selo acustico</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-number">100 kVA</div>
+            <div class="metric-label">Energia eletrica com gerador</div>
+            <div class="metric-demo-note">Espaco para capacidade de carga</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECAO DE ESPACOS E AMBIENTES
+         ========================================================================== -->
+    <section class="section-wrapper" id="espacos">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-tag">Infraestrutura Completa</div>
+          <h2 class="section-title">Espacos desenhados para cada formato</h2>
+          <p class="section-subtitle">
+            Do comercial de televisao a serie de podcasts, cada ambiente conta com tratamento de luz e som dedicado.
+          </p>
+        </header>
+
+        <div class="spaces-grid">
+          <!-- Estudio A -->
+          <article class="space-card">
+            <div class="space-media-wrapper">
+              <span class="media-tag-floating">Estudio Principal</span>
+              <svg class="space-placeholder-svg" viewBox="0 0 600 375" xmlns="http://www.w3.org/2000/svg">
+                <rect width="600" height="375" fill="#13131c"/>
+                <path d="M50 325 C 200 325, 400 325, 550 325 L 550 50 L 50 50 Z" fill="#181824" stroke="#2a2a38" stroke-width="2"/>
+                <circle cx="300" cy="180" r="70" fill="none" stroke="#e5a93b" stroke-width="1.5" stroke-dasharray="6,6"/>
+                <path d="M 120 70 L 480 70 M 120 120 L 480 120 M 120 170 L 480 170" stroke="#252535" stroke-width="1.5"/>
+                <text x="300" y="185" fill="#e5a93b" font-family="'Space Mono', monospace" font-size="14" text-anchor="middle">FOTO DO SEU CICLORAMA AQUI</text>
+              </svg>
+            </div>
+            <div class="space-card-body">
+              <h3 class="space-card-title">Estudio A: Ciclorama Infinito</h3>
+              <p>Ciclorama curvo de tres paredes com pintura branca ou croma verde. Entrada direta para veiculos e carga pesada.</p>
+              
+              <ul class="space-specs-list">
+                <li class="space-spec-item">240 m²</li>
+                <li class="space-spec-item">Grid motorizado</li>
+                <li class="space-spec-item">Portao para carros</li>
+              </ul>
+
+              <div class="demo-box-helper">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                <span><strong>Foto do Cliente:</strong> Substitua pela fotografia em alta definicao do seu ciclorama ou estudio maior.</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Estudio B -->
+          <article class="space-card">
+            <div class="space-media-wrapper">
+              <span class="media-tag-floating">Podcast e Lives</span>
+              <svg class="space-placeholder-svg" viewBox="0 0 600 375" xmlns="http://www.w3.org/2000/svg">
+                <rect width="600" height="375" fill="#13131c"/>
+                <rect x="150" y="110" width="300" height="160" rx="20" fill="#1c1c28" stroke="#38bdf8" stroke-width="1.5"/>
+                <circle cx="210" cy="190" r="25" fill="#262638"/>
+                <circle cx="300" cy="190" r="25" fill="#262638"/>
+                <circle cx="390" cy="190" r="25" fill="#262638"/>
+                <text x="300" y="270" fill="#38bdf8" font-family="'Space Mono', monospace" font-size="13" text-anchor="middle">FOTO DO SEU ESTUDIO B / PODCAST</text>
+              </svg>
+            </div>
+            <div class="space-card-body">
+              <h3 class="space-card-title">Estudio B: Podcast e Transmissao</h3>
+              <p>Mesa acustica para ate 5 participantes, 4 cameras 4K configuradas, corte ao vivo em tempo real e iluminacao difusa.</p>
+
+              <ul class="space-specs-list">
+                <li class="space-spec-item">70 m²</li>
+                <li class="space-spec-item">Cenario modular</li>
+                <li class="space-spec-item">Fibra 1Gb redundante</li>
+              </ul>
+
+              <div class="demo-box-helper">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                <span><strong>Foto do Cliente:</strong> Substitua pela foto do seu cenario de podcast, entrevistas ou mesao de gravacao.</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Sala de Audio -->
+          <article class="space-card">
+            <div class="space-media-wrapper">
+              <span class="media-tag-floating">Acustica Pura</span>
+              <svg class="space-placeholder-svg" viewBox="0 0 600 375" xmlns="http://www.w3.org/2000/svg">
+                <rect width="600" height="375" fill="#13131c"/>
+                <path d="M 80 190 Q 200 80, 300 190 T 520 190" fill="none" stroke="#e5a93b" stroke-width="2"/>
+                <rect x="220" y="140" width="160" height="100" rx="8" fill="#1c1c28" stroke="#2e2e3f"/>
+                <text x="300" y="195" fill="#e5a93b" font-family="'Space Mono', monospace" font-size="13" text-anchor="middle">FOTO DA SALA DE AUDIO</text>
+              </svg>
+            </div>
+            <div class="space-card-body">
+              <h3 class="space-card-title">Sala de Gravacao e Mixagem</h3>
+              <p>Tratamento flutuante com certificacao de silencio. Ideal para dublagem, trilhas originais, foley e mixagem estereo e multicanal.</p>
+
+              <ul class="space-specs-list">
+                <li class="space-spec-item">45 m²</li>
+                <li class="space-spec-item">Piso flutuante</li>
+                <li class="space-spec-item">Microfonia valvulada</li>
+              </ul>
+
+              <div class="demo-box-helper">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                <span><strong>Foto do Cliente:</strong> Substitua pela foto da sua tecnica de som, cabine vocal ou estudio musical.</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECAO DE PORTFOLIO INTERATIVO
+         ========================================================================== -->
+    <section class="section-wrapper" id="portfolio">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-tag">Producoes Realizadas</div>
+          <h2 class="section-title">O que ja passou pelas nossas lentes</h2>
+          <p class="section-subtitle">
+            Exemplos de campanhas, ensaios e producoes produzidas na estrutura do estudio.
+          </p>
+        </header>
+
+        <div class="portfolio-filters" role="tablist">
+          <button type="button" class="filter-btn active" data-filter="all">Todos os Projetos</button>
+          <button type="button" class="filter-btn" data-filter="cinema">Cinema e Ficcao</button>
+          <button type="button" class="filter-btn" data-filter="publicidade">Publicidade</button>
+          <button type="button" class="filter-btn" data-filter="musica">Videoclipes</button>
+          <button type="button" class="filter-btn" data-filter="moda">Moda e Ensaio</button>
+        </div>
+
+        <div class="portfolio-grid">
+          <!-- Projeto 1 -->
+          <article class="project-card" data-category="publicidade">
+            <div class="project-preview">
+              <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="225" fill="#12121b"/>
+                <circle cx="200" cy="112" r="50" fill="#20202e" stroke="#e5a93b" stroke-width="1.5"/>
+                <text x="200" y="117" fill="#e5a93b" font-family="'Space Mono', monospace" font-size="11" text-anchor="middle">FRAME COMERCIAL</text>
+              </svg>
+              <div class="project-overlay">
+                <div class="project-play-icon" aria-hidden="true">&#9658;</div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Publicidade Nacional</div>
+              <h3 class="project-title">Campanha Relogios Chronos</h3>
+              <div class="project-credits">
+                <span>Direcao: Rodrigo Prado</span>
+                <span>Estudio A</span>
+              </div>
+              <div class="demo-box-helper">
+                <span>Aqui entra o cartaz, foto ou frame do video gravado por seus clientes.</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 2 -->
+          <article class="project-card" data-category="cinema">
+            <div class="project-preview">
+              <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="225" fill="#12121b"/>
+                <polygon points="120,180 200,60 280,180" fill="#1c1c28" stroke="#38bdf8" stroke-width="1.5"/>
+                <text x="200" y="170" fill="#38bdf8" font-family="'Space Mono', monospace" font-size="11" text-anchor="middle">FRAME CURTA-METRAGEM</text>
+              </svg>
+              <div class="project-overlay">
+                <div class="project-play-icon" aria-hidden="true">&#9658;</div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Cinema e Ficcao</div>
+              <h3 class="project-title">O Ultimo Refletor</h3>
+              <div class="project-credits">
+                <span>Direcao: Marina Farias</span>
+                <span>Estudio A e B</span>
+              </div>
+              <div class="demo-box-helper">
+                <span>Espaco para divulgar filmes e pecas autorais rodadas no seu espaco.</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 3 -->
+          <article class="project-card" data-category="musica">
+            <div class="project-preview">
+              <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="225" fill="#12121b"/>
+                <circle cx="150" cy="112" r="40" fill="#20202e"/>
+                <circle cx="250" cy="112" r="40" fill="#20202e"/>
+                <path d="M 150 112 L 250 112" stroke="#e5a93b" stroke-width="2"/>
+                <text x="200" y="117" fill="#e5a93b" font-family="'Space Mono', monospace" font-size="11" text-anchor="middle">FRAME VIDEOCLIPE</text>
+              </svg>
+              <div class="project-overlay">
+                <div class="project-play-icon" aria-hidden="true">&#9658;</div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Videoclipe Musical</div>
+              <h3 class="project-title">Sons de Meia Noite</h3>
+              <div class="project-credits">
+                <span>Artista: Sonora Duo</span>
+                <span>Sala de Audio</span>
+              </div>
+              <div class="demo-box-helper">
+                <span>Adicione aqui links para os clipes no YouTube ou Vimeo da sua produtora.</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 4 -->
+          <article class="project-card" data-category="moda">
+            <div class="project-preview">
+              <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="225" fill="#12121b"/>
+                <rect x="140" y="50" width="120" height="125" rx="4" fill="#1a1a24" stroke="#e5a93b" stroke-width="1.5"/>
+                <text x="200" y="117" fill="#e5a93b" font-family="'Space Mono', monospace" font-size="11" text-anchor="middle">ENSAIO EDITORIAL</text>
+              </svg>
+              <div class="project-overlay">
+                <div class="project-play-icon" aria-hidden="true">&#9658;</div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Moda e Ensaio</div>
+              <h3 class="project-title">Editorial Outono Urbano</h3>
+              <div class="project-credits">
+                <span>Foto: Camila Rios</span>
+                <span>Estudio A</span>
+              </div>
+              <div class="demo-box-helper">
+                <span>Exiba fotos de modelos, produtos e catalogos fotografados no estudio.</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECAO DE RIDER TECNICO E EQUIPAMENTOS
+         ========================================================================== -->
+    <section class="section-wrapper" id="equipamentos">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-tag">Rider Tecnico</div>
+          <h2 class="section-title">Equipamentos inclusos na sua reserva</h2>
+          <p class="section-subtitle">
+            Evite custos extras de transporte de externa. Dispomos de um parque de equipamentos pronto na casa.
+          </p>
+        </header>
+
+        <div class="gear-grid">
+          <div class="gear-column">
+            <h3 class="gear-column-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+              Cameras e Otica
+            </h3>
+            <ul class="gear-items-list">
+              <li class="gear-item"><span>Cinema Camera 4K / 6K</span><span>2 corpos</span></li>
+              <li class="gear-item"><span>Jogo Lentes Cine Prime</span><span>18 a 85mm</span></li>
+              <li class="gear-item"><span>Mattebox e Filtros ND</span><span>Incluso</span></li>
+              <li class="gear-item"><span>Monitores de Direcao 7"</span><span>2 unidades</span></li>
+            </ul>
+            <div class="demo-box-helper">
+              <span>Atualize com as cameras e lentes que o seu estudio disponibiliza.</span>
+            </div>
+          </div>
+
+          <div class="gear-column">
+            <h3 class="gear-column-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line></svg>
+              Luz e Eletrica
+            </h3>
+            <ul class="gear-items-list">
+              <li class="gear-item"><span>Refletores LED 600W Daylight</span><span>4 pecas</span></li>
+              <li class="gear-item"><span>Tubos LED RGB Pixel</span><span>8 pecas</span></li>
+              <li class="gear-item"><span>Haze / Maquina de Fumaca</span><span>Incluso</span></li>
+              <li class="gear-item"><span>C-Stands e Bandeiras</span><span>16 pecas</span></li>
+            </ul>
+            <div class="demo-box-helper">
+              <span>Informe seu kit de iluminacao, rebatedores e acessorios eletricos.</span>
+            </div>
+          </div>
+
+          <div class="gear-column">
+            <h3 class="gear-column-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+              Captacao de Som
+            </h3>
+            <ul class="gear-items-list">
+              <li class="gear-item"><span>Microfones Boom Shotgun</span><span>2 pecas</span></li>
+              <li class="gear-item"><span>Kits Lapela Sem Fio</span><span>4 canais</span></li>
+              <li class="gear-item"><span>Gravador de Pista Dedicado</span><span>32-bit float</span></li>
+              <li class="gear-item"><span>Microfonia de Estacao Podcast</span><span>4 mics</span></li>
+            </ul>
+            <div class="demo-box-helper">
+              <span>Liste os microfones e mesas de som disponiveis na sua estrutura.</span>
+            </div>
+          </div>
+
+          <div class="gear-column">
+            <h3 class="gear-column-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              Conforto e Equipe
+            </h3>
+            <ul class="gear-items-list">
+              <li class="gear-item"><span>Camarim Climatizado</span><span>Espelho luz</span></li>
+              <li class="gear-item"><span>Copa e Mesa de Producao</span><span>Incluso</span></li>
+              <li class="gear-item"><span>Estacionamento Interno</span><span>6 vagas</span></li>
+              <li class="gear-item"><span>Internet Fibra Dedicada</span><span>1 Gbps</span></li>
+            </ul>
+            <div class="demo-box-helper">
+              <span>Destaque facilidades como copa, estacionamento e ar condicionado.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SIMULADOR INTERATIVO DE DIARIAS (MOMENTO DE FECHAMENTO)
+         ========================================================================== -->
+    <section class="section-wrapper" id="simulador">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-tag">Transparencia Total</div>
+          <h2 class="section-title">Simulador de Diaria Instantaneo</h2>
+          <p class="section-subtitle">
+            Selecione o espaco desejado e o tempo de producao para calcular uma estimativa previa sem esperar orcamentos demorados.
+          </p>
+        </header>
+
+        <div class="calculator-box">
+          <div class="calc-controls">
+            <div class="calc-form-group">
+              <label class="calc-label">1. Escolha o Ambiente Desejado:</label>
+              <div class="calc-options-grid">
+                <div class="calc-chip-radio">
+                  <input type="radio" id="spaceOptionA" name="calcSpace" value="a" checked>
+                  <label for="spaceOptionA" class="calc-chip-label">Estudio A (Ciclorama)</label>
+                </div>
+                <div class="calc-chip-radio">
+                  <input type="radio" id="spaceOptionB" name="calcSpace" value="b">
+                  <label for="spaceOptionB" class="calc-chip-label">Estudio B (Podcast)</label>
+                </div>
+                <div class="calc-chip-radio">
+                  <input type="radio" id="spaceOptionAudio" name="calcSpace" value="audio">
+                  <label for="spaceOptionAudio" class="calc-chip-label">Sala de Gravacao</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-form-group">
+              <label class="calc-label" for="calcHoursSlider">2. Tempo Estimado de Ocupacao:</label>
+              <div class="calc-slider-wrapper">
+                <input type="range" min="4" max="14" value="8" step="1" id="calcHoursSlider" class="calc-slider">
+                <div class="slider-indicator">
+                  <span>Meia Diaria (4h)</span>
+                  <span id="calcHoursValue" style="font-weight: 700; color: #fff;">8 horas</span>
+                  <span>Diaria Completa (14h)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-form-group">
+              <label class="calc-label">3. Servicos Adicionais:</label>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <label style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; cursor: pointer;">
+                  <input type="checkbox" id="addonLighting"> Pacote Completo de Iluminacao Cinema (+R$ 350)
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; cursor: pointer;">
+                  <input type="checkbox" id="addonStaff"> Assistente Tecnico de Eletrica no Set (+R$ 250)
+                </label>
+              </div>
+            </div>
+
+            <div class="demo-box-helper">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              <span><strong>Para o Dono do Estudio:</strong> Estes valores sao configurados de acordo com a sua tabela real de precos e pacotes.</span>
+            </div>
+          </div>
+
+          <div class="calc-result-panel">
+            <div class="calc-result-title">Estimativa do Projeto</div>
+            <div class="calc-price-display" id="calcTotalPrice">R$ 1.760</div>
+
+            <div class="calc-details-list">
+              <div class="calc-details-item">
+                <span>Espaco:</span>
+                <strong id="calcDetailSpace">Estudio A (Ciclorama 4K)</strong>
+              </div>
+              <div class="calc-details-item">
+                <span>Periodo:</span>
+                <span id="calcDetailHours">8h de producao</span>
+              </div>
+              <div class="calc-details-item">
+                <span>Estacionamento e Copa:</span>
+                <span style="color: #4ade80;">Incluso</span>
+              </div>
+            </div>
+
+            <button type="button" class="btn-primary" id="bookFromCalcBtn" style="width: 100%; justify-content: center;">
+              Reservar Esta Configuracao
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PROVA SOCIAL E DEPOIMENTOS
+         ========================================================================== -->
+    <section class="section-wrapper">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-tag">Confianca de Mercado</div>
+          <h2 class="section-title">O que dizem os diretores e produtoras</h2>
+          <p class="section-subtitle">
+            A satisfacao de quem ja rodou projetos com agilidade na nossa casa.
+          </p>
+        </header>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <p class="testimonial-quote">
+              "A agilidade no check-in e a pontualidade da equipe de suporte fizeram a diferenca no nosso comercial. O ciclorama estava impecavelmente pintado e a energia eletrica segurou nosso set sem oscilacoes."
+            </p>
+            <div class="author-wrapper">
+              <div class="author-avatar">RP</div>
+              <div>
+                <div class="author-name">Rodrigo Prado</div>
+                <div class="author-role">Diretor de Cena, Produtora Prisma Filmes</div>
+              </div>
+            </div>
+            <div class="demo-box-helper" style="margin-top: 1rem;">
+              <span>Substitua pelos depoimentos reais de clientes e diretores que usam seu espaco.</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <p class="testimonial-quote">
+              "Gravamos 12 episodios de videocast em dois dias consecutivos. O isolamento acustico e perfeito, sem nenhum ruido de rua ou interferencias externas. Voltaremos todo mes."
+            </p>
+            <div class="author-wrapper">
+              <div class="author-avatar">AL</div>
+              <div>
+                <div class="author-name">Amanda Lins</div>
+                <div class="author-role">Produtora Executiva, Canal Fala Criador</div>
+              </div>
+            </div>
+            <div class="demo-box-helper" style="margin-top: 1rem;">
+              <span>Depoimentos reais geram seguranca imediata para quem esta reservando a primeira vez.</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <p class="testimonial-quote">
+              "O camarim com espelhos profissionais e ar condicionado silencioso ajudou muito na troca de figurinos dos modelos. Foi a sessao de fotos mais tranquila do nosso ano."
+            </p>
+            <div class="author-wrapper">
+              <div class="author-avatar">CR</div>
+              <div>
+                <div class="author-name">Camila Rios</div>
+                <div class="author-role">Fotografa de Moda e Campanhas</div>
+              </div>
+            </div>
+            <div class="demo-box-helper" style="margin-top: 1rem;">
+              <span>Adicione a foto real do profissional e o link da produtora parceira.</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FAQ (PERGUNTAS FREQUENTES E OBJECOES)
+         ========================================================================== -->
+    <section class="section-wrapper" id="faq">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-tag">Tire Suas Duvidas</div>
+          <h2 class="section-title">Perguntas frequentes sobre reservas</h2>
+          <p class="section-subtitle">
+            Respostas claras para as principais questoes sobre horarios, estrutura e regras de locacao.
+          </p>
+        </header>
+
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Como funciona a reserva e a confirmacao de data?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              A data e confirmada mediante sinal de reserva e assinatura digital do contrato de locacao. O saldo restante e quitado no dia da producao durante a recepcao da equipe.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Podemos pintar o ciclorama em cores personalizadas?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              Sim. Realizamos a pintura prévia na cor da sua escolha (croma verde, azul, preto ou tons específicos). Basta solicitar com pelo menos 48 horas de antecedência para a cura da tinta.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Ha espaco para descarregar caminhao de iluminacao e arte?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              Sim. Nosso portao de doca possui 4 metros de largura com acesso direto ao piso do Estudio A no mesmo nivel da rua, permitindo a entrada facil de furgões e veiculos cenograficos.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Posso levar meus proprios equipamentos e operadores?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              Com certeza. Voce tem total liberdade para trazer sua camera, lentes, equipe de luz e arte. Nossos equipamentos na casa estao disponiveis como apoio opcional.
+            </div>
+          </div>
+        </div>
+
+        <div style="max-width: 820px; margin-inline: auto; margin-top: 1.5rem;">
+          <div class="demo-box-helper">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            <span><strong>Dica para o Cliente:</strong> Responda aqui as duvidas mais comuns que chegam na recepcao para fechar reservas muito mais rapido.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CHAMADA PARA ACAO FINAL E FORMULARIO DE RESERVA
+         ========================================================================== -->
+    <section class="cta-section" id="contato">
+      <div class="container">
+        <div class="cta-grid">
+          <div>
+            <span class="demo-badge" style="margin-bottom: 1rem;">Atendimento Direto</span>
+            <h2 style="font-size: clamp(2.2rem, 4.5vw, 3.2rem); margin-bottom: 1.2rem;">
+              Garanta a data da sua proxima gravacao.
+            </h2>
+            <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.8rem;">
+              Nossa agenda opera com slots de meia diaria e diaria integral. Envie os detalhes do seu projeto e retornaremos em poucos minutos com a disponibilidade e orientacao tecnica.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2rem;">
+              <div style="display: flex; align-items: center; gap: 0.8rem; color: #fff;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e5a93b" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span>WhatsApp: (11) 98888-0000 (Substitua pelo seu numero)</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.8rem; color: #fff;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e5a93b" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>E-mail: contato@seuestudio.com.br</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.8rem; color: #fff;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e5a93b" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Endereco: Bairro Audiovisual, Sao Paulo - SP</span>
+              </div>
+            </div>
+
+            <div class="demo-box-helper">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              <span><strong>Destino das Mensagens:</strong> No site definitivo, o formulario pode enviar o pedido direto para o seu WhatsApp comercial ou para o e-mail da recepcao.</span>
+            </div>
+          </div>
+
+          <!-- Formulario de solicitacao -->
+          <div class="form-box">
+            <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Solicitar Disponibilidade</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">Preencha para receber a confirmacao de agenda.</p>
+
+            <form id="bookingForm">
+              <div class="form-field">
+                <label class="form-label" for="formName">Seu Nome Completo:</label>
+                <input type="text" id="formName" class="form-input" placeholder="Ex: Lucas Mendes" required>
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="formCompany">Produtora ou Marca:</label>
+                <input type="text" id="formCompany" class="form-input" placeholder="Ex: Aurora Filmes">
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="formPhone">WhatsApp para Retorno:</label>
+                <input type="tel" id="formPhone" class="form-input" placeholder="(11) 99999-9999" required>
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="formSpaceSelect">Espaco Desejado:</label>
+                <select id="formSpaceSelect" class="form-select">
+                  <option value="a">Estudio A (Ciclorama Infinito)</option>
+                  <option value="b">Estudio B (Podcast e Transmissao)</option>
+                  <option value="audio">Sala de Gravacao e Audio</option>
+                  <option value="todos">Locacao Completa do Predio</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="formMessage">Detalhes da Producao:</label>
+                <textarea id="formMessage" class="form-textarea" placeholder="Descreva brevemente a data pretendida, quantidade de pessoas e necessidades tecnicas."></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary form-submit-btn">
+                Enviar Solicitacao de Reserva
+              </button>
+
+              <div id="formFeedback" class="form-feedback-modal"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       RODAPE
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-wrapper" style="margin-bottom: 1rem;">
+            <div class="brand-symbol">CK</div>
+            <div class="brand-info">
+              <span class="brand-title">CINEKRAFT</span>
+              <span class="brand-subtitle">Estudio Audiovisual</span>
+            </div>
+          </div>
+          <p class="footer-disclaimer">
+            Este modelo de site e uma demonstracao funcional desenhada para estudios de cinema, fotografia, video e producao sonora. Todos os blocos com avisos azuis indicam exatamente onde entram as informacoes do cliente real.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navegacao</h4>
+          <ul class="footer-links-list">
+            <li><a href="#espacos">Espacos</a></li>
+            <li><a href="#portfolio">Trabalhos</a></li>
+            <li><a href="#equipamentos">Equipamentos</a></li>
+            <li><a href="#simulador">Simulador</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Informacoes</h4>
+          <ul class="footer-links-list">
+            <li><a href="#faq">Duvidas Frequentes</a></li>
+            <li><a href="#contato">Solicitar Diaria</a></li>
+            <li><a href="#">Politica de Cancelamento</a></li>
+            <li><a href="#">Regulamento Interno</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Personalizacao</h4>
+          <ul class="footer-links-list">
+            <li><a href="#" id="footerGuideLink">Guia do Cliente</a></li>
+            <li><a href="#espacos">Trocar Fotos</a></li>
+            <li><a href="#contato">Trocar Contatos</a></li>
+            <li><a href="#simulador">Ajustar Tabela</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 CineKraft Studios. Modelo de demonstracao para estudios criativos.</div>
+        <div>Construido com HTML, CSS e JavaScript puros. Sem frameworks ou compilacao.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal com explicacoes sobre onde e como personalizar -->
+  <div class="guide-modal-overlay" id="guideModal" role="dialog" aria-modal="true" aria-labelledby="guideModalTitle">
+    <div class="guide-modal-card">
+      <button type="button" class="guide-modal-close" id="closeGuideModal" aria-label="Fechar">&times;</button>
+      <h3 class="guide-modal-title" id="guideModalTitle">Como Personalizar Este Modelo para o Seu Estudio</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+        Este site ja vem com toda a arquitetura, animacoes e interacoes prontas. Para transformar na versao oficial do seu negocio, basta substituir os seguintes pontos:
+      </p>
+
+      <ol class="guide-steps-list">
+        <li><strong>Nome e Logo:</strong> Troque "CineKraft" no cabecalho e rodape pelo nome do seu estudio.</li>
+        <li><strong>Video Hero:</strong> No monitor principal, aponte para o video do seu reel (em arquivo MP4 ou link).</li>
+        <li><strong>Fotos dos Espacos:</strong> Substitua as caixas de demonstracao pelas fotos reais do seu ciclorama, salas e camarim.</li>
+        <li><strong>Portfólio:</strong> Insira os trabalhos, campanhas ou ensaios reais que sua equipe ja realizou.</li>
+        <li><strong>Rider Tecnico:</strong> Atualize a lista de equipamentos inclusos de acordo com o que voce tem no estudio.</li>
+        <li><strong>Tabela de Precos:</strong> Ajuste o valor da hora e pacotes no simulador para refletir sua diaria real.</li>
+        <li><strong>Contato e WhatsApp:</strong> Atualize o numero de telefone e e-mail para receber as reservas no seu celular.</li>
+      </ol>
+
+      <button type="button" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 1rem;" onclick="document.getElementById('guideModal').classList.remove('active');">
+        Entendi, Fechar Guia
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
